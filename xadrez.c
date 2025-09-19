@@ -1,32 +1,64 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+void movBispo (int n){
+    if (n > 0){
+        printf("Cima\n");
+        printf("Direita\n");
+        movBispo(n-1);
+    }
+}
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+void movTorre (int n){
+    if (n > 0){
+        printf("Direita\n");
+        movTorre(n-1);
+    }
+}
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+void movRainha (int n){
+    if (n > 0){
+        printf("Esquerda\n");
+        movRainha(n-1);
+    }
+}
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+void movCavalo (int n, int m){
+    if (n > 0){
+        while (m > 0){
+            printf("Direita\n");
+            m--;
+        }
+        printf("Cima\n");
+        movCavalo(n-1, m);
+    }
+}
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+int main (){
+    // Declaração de Variáveis;
+    int bispoDesloc = 5;    //Deslocamento Bispo Constante
+    int torreDesloc = 5;    //Deslocamento Torre Constante 
+    int rainhaDesloc = 8;   //Deslocamento Rainha Constante
+    int cavaloDesloc_1 = 2; //1º Deslocamento Cavalo Constante
+    int cavaloDesloc_2 = cavaloDesloc_1 == 1 ? 2 : 1;
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    // Deslocamento BISPO para [Diagonal Superior Direita]
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    printf("Deslocamento BISPO: %d casas na Diagonal superior direita\n", bispoDesloc);
+    movBispo(bispoDesloc);
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    // Deslocamento TORRE para [Direita]
+
+    printf("Deslocamento TORRE: %d casas para a direita\n", torreDesloc);
+    movTorre(torreDesloc);
+    
+    // Deslocamento RAINHA para [Esquerda]
+
+    printf("Deslocamento RAINHA: %d casas para a esquerda\n", rainhaDesloc);
+    movRainha(rainhaDesloc);
+
+    // Deslocamento CAVALO para [Cima e Direita]
+    printf("Deslocamento CAVALO: %d casas para a Cima e %d para Direita\n", cavaloDesloc_1, cavaloDesloc_2);
+    movCavalo(cavaloDesloc_1, cavaloDesloc_2);
 
     return 0;
 }
