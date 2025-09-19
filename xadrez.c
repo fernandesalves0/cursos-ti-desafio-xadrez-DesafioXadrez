@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+//Função Movimento BISPO
 void movBispo (int n){
     if (n > 0){
         printf("Cima\n");
@@ -8,6 +9,7 @@ void movBispo (int n){
     }
 }
 
+//Função Movimento TORRE
 void movTorre (int n){
     if (n > 0){
         printf("Direita\n");
@@ -15,6 +17,7 @@ void movTorre (int n){
     }
 }
 
+//Função Movimento RAINHA
 void movRainha (int n){
     if (n > 0){
         printf("Esquerda\n");
@@ -22,6 +25,7 @@ void movRainha (int n){
     }
 }
 
+//Função Movimento CAVALO
 void movCavalo (int n, int m){
     if (n > 0){
         while (m > 0){
